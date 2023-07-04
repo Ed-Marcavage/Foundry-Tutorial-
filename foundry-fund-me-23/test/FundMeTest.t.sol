@@ -4,8 +4,17 @@ pragma solidity 0.8.19;
 
 import {Test, console} from "forge-std/Test.sol";
 
-contract FundMeTest is Test {
-    function setUp() external {}
+import {FundMe} from "../src/FundMe.sol";
 
-    function testDemo() public {}
+contract FundMeTest is Test {
+    FundMe fundMe;
+
+    function setUp() external {
+        fundMe = new FundMe();
+    }
+
+    function testMinimumDollarIsFive() public {
+        uint256 minimumDollar = fundMe.MINIMUM_USD();
+        assertEq(minimumDollar, 5e18);
+    }
 }
