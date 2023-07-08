@@ -53,7 +53,8 @@ contract FundMe {
             address funder = s_funders[funderIndex];
             s_addressToAmountFunded[funder] = 0;
         }
-        s_funders = new address[](0);
+        s_funders = new address[](0); // reset funders array with 0 length and new instance
+        // 5:20:26 / 8:24:04 • Lesson 4
         // // transfer
         // payable(msg.sender).transfer(address(this).balance);
         
