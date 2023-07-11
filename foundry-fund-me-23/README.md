@@ -6,5 +6,6 @@ variables set in the constructor can be labled as immutable
 forge snapshot --mt testWithDrawFromMultipleFunders
 forge test --mt testWithdrawFromASingleFunder -vv
 forge inspect FundMe storageLayout
+source .env
 
 

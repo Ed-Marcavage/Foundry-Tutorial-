@@ -8,6 +8,8 @@ import {DeployFundMe} from "../../script/DeployFundMe.s.sol";
 import {FundMe} from "../../src/FundMe.sol";
 import {FundFundMe, WithdrawFundMe} from "../../script/Interactions.s.sol";
 
+// Test FundFundMe & WithdrawFundMe scripts in script/Interactions
+
 contract InteractionsTest is Test {
     FundMe fundMe;
 
@@ -22,6 +24,7 @@ contract InteractionsTest is Test {
         vm.deal(USER, STARTING_USER_BALANCE);
     }
 
+    // try on your own seperating these into two tests
     function testUserCanFundAndOwnerWithdraw() public {
         FundFundMe fundFundMe = new FundFundMe();
         fundFundMe.fundFundMe(address(fundMe));
