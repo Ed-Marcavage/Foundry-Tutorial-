@@ -6,3 +6,5 @@ forge script script/DeployBasicNft.s.sol:DeployBasicNft --rpc-url $SEPOLIA_RPC_U
 
 
 Rec. DevOps package in home dir
+
+LEFT OFF TRYING TO create a script to programatically deploy contract via factory

@@ -3,6 +3,7 @@ pragma solidity 0.8.19;
 import {Script} from "forge-std/Script.sol";
 import {DevOpsTools} from "lib/foundry-devops/src/DevOpsTools.sol";
 import {BasicNft} from "../src/BasicNft.sol";
+import {BasicNftFactory} from "../src/BasicNftFactory.sol";
 
 contract MintBasicNft is Script {
     string public constant USER_URI =
@@ -19,6 +20,20 @@ contract MintBasicNft is Script {
     function mintNftOnContract(address contractAddress) public {
         vm.startBroadcast();
         BasicNft(contractAddress).mintNft(USER_URI);
+        vm.stopBroadcast();
+    }
+}
+
+contract DeployNftContract is Script {
+    function run() external {
+        address mostRecentlyDeployedBasicNft = DevOpsTools
+            .get_most_recent_deployment("BasicNftFactory", block.chainid);
+        deployNftContract(mostRecentlyDeployedBasicNft);
+    }
+
+    function deployNftContract(address moodNftAddress) public {
+        vm.startBroadcast();
+        BasicNftFactory(moodNftAddress).createBasicNft();
         vm.stopBroadcast();
     }
 }

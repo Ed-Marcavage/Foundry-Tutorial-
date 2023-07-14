@@ -49,9 +49,14 @@ deploy:
 deployMood:
 	@forge script script/DeployMoodNft.s.sol:DeployMoodNft $(NETWORK_ARGS)
 
+DeployNftContract:
+	@forge script script/Interactions.s.sol:DeployNftContract $(NETWORK_ARGS)
+
 mintMoodNft:
 	@forge script script/Interactions.s.sol:MintMoodNft $(NETWORK_ARGS)
 
 flipMoodNft:
 	@forge script script/Interactions.s.sol:FlipMoodNft $(NETWORK_ARGS)
+
+
 
